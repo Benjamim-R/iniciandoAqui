@@ -1,0 +1,25 @@
+public class EmailSimples {
+
+    public EmailSimples() {
+    }
+
+    public void enviarEmail() {
+
+        try{
+        Email email = new SimpleEmail();
+        email.setHostName("smtp.googlemail.com");
+        email.setSmtpPort(465);
+        email.setDebug(true);
+        email.setAuthentication("email@gmail.com", "123aleluia");
+        email.setSSLOnConnect(true);
+        email.setFrom("email@gmail.com");
+        email.setSubject("Enviando email");
+        email.setMsg("Enviando email para fazer um teste");
+        email.addTo("email2@gmail.com");
+        email.send();
+        }catch(EmailException ex){
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro >>> "+ex);
+        }
+
+    }
+}
